@@ -2,7 +2,10 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const { notFoundHandler, errorHandler } = require('./middlewares')
+require('dotenv').config();
+const { notFoundHandler, errorHandler } = require('./middlewares');
+
+const authRouter = require('./routes/auth');
 
 var app = express();
 
@@ -17,6 +20,8 @@ app.get('/', (req, res) => {
         message: 'Welcome to Globel Forum API 🎉'
     })
 });
+
+app.use('/auth', authRouter);
 
 app.use(notFoundHandler)
 app.use(errorHandler)

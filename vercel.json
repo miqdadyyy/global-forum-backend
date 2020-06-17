@@ -1,0 +1,16 @@
+{
+  "name": "global-forum-api",
+  "version": 2,
+  "builds": [
+    {
+      "src": "./bin/www",
+      "use": "@now/node-server"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/.*",
+      "dest": "bin/www"
+    }
+  ]
+}
